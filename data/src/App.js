@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import PuiMultiLineGraphDisplayComponent from "./js/PuiMultiLineGraphDisplayComponent";
 
 function App() {
-  const [terible, showterible] = (useState = null);
+  // const [terible, showterible] = (useState = null);
 
-  const videoshow = () => {
-    showterible(true);
-  };
+  // const videoshow = () => {
+  //   showterible(true);
+  // };
 
   return (
     <div className="App">
@@ -76,7 +76,7 @@ function App() {
           </div>
           <div>
             <label>
-              <input type="checkbox" onchange={videoshow} />
+              <input type="checkbox" />
               동영상
             </label>
           </div>
