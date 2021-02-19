@@ -12,7 +12,7 @@ function App() {
             <input type="text" />
           </div>
           <div className="input_text input_pw">
-            <input type="text" />
+            <input type="password" />
           </div>
         </div>
         <div className="btn_click">
