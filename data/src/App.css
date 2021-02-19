@@ -1,3 +1,39 @@
+body {
+  width: 100%;
+  height: 100%;
+  background-color: lightgray;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+.title {
+  width: 100%;
+  /* border: 1px solid red; */
+  padding: 1rem 0;
+  font-size: 2rem;
+}
+.table_wrpper {
+  width: 100%;
+  /* border: 1px solid blue; */
+}
+.table_wrpper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+tr,
+td {
+  border: 1px solid #000;
+}
+.table_wrpper thead {
+  width: 100%;
+}
+.table_wrpper tbody {
+  width: 100%;
+}
+
+/* app.css */
 .App {
   text-align: center;
 }
