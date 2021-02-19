@@ -97,7 +97,8 @@ function App() {
         <div className="result_wrap">
           <table>
             <tr>
-              <td>1</td>
+              <td>날짜</td>
+              <td>센서값</td>
             </tr>
           </table>
         </div>
