@@ -23,6 +23,9 @@
       "react-app/jest"
     ]
   },
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
   "browserslist": {
     "production": [
       ">0.2%",
