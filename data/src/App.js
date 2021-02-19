@@ -1,12 +1,8 @@
 import "./App.css";
 import React, { useState } from "react";
 import PuiMultiLineGraphDisplayComponent from "./js/PuiMultiLineGraphDisplayComponent";
-import SelectDatePicker from "@netojose/react-select-datepicker";
 
 function App() {
-  const [date, setDate] = useState(new Date(2000, 0, 1));
-  const handleChange = (value) => setDate(value);
-
   return (
     <div className="App">
       <div className="wrapper">
@@ -77,13 +73,7 @@ function App() {
             </label>
           </div>
         </div>
-        <div className="date_wrapper">
-          <SelectDatePicker
-            value={date}
-            onDateChange={handleChange}
-            className="date-picker"
-          />
-        </div>
+        <div className="date_wrapper"></div>
         <div className="retrieve_wrapper">
           <button>조회</button>
         </div>
