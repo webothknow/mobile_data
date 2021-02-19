@@ -7,6 +7,19 @@ body {
   width: 100%;
   height: 100%;
 }
+.fix_wrapper {
+  position: relative;
+}
+.title_table {
+  border: 1px solid rebeccapurple;
+  position: fixed;
+  width: 100%;
+  height: 190px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: lightgray;
+}
 .title {
   width: 100%;
   /* border: 1px solid red; */
@@ -34,6 +47,7 @@ td {
 }
 .chart_wrap {
   width: 100%;
+  margin-top: 190px;
   border: 1px solid red;
 }
 .card {
@@ -70,6 +84,20 @@ td {
     padding-right: 0 !important;
     padding-left: 0 !important;
   }
+}
+.video_wrapper {
+  width: 100%;
+  height: auto;
+  border: 1px solid blue;
+  /* display: none; */
+}
+.video_wrapper video {
+  width: 100%;
+  height: auto;
+}
+.check_wrapper {
+  display: flex;
+  justify-content: space-around;
 }
 
 /* app.css */

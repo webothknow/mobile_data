@@ -1,34 +1,43 @@
 import "./App.css";
+import React, { useState } from "react";
 import PuiMultiLineGraphDisplayComponent from "./js/PuiMultiLineGraphDisplayComponent";
 
 function App() {
+  const [terible, showterible] = (useState = null);
+
+  const videoshow = () => {
+    showterible(true);
+  };
+
   return (
     <div className="App">
       <div className="wrapper">
-        <div className="title_table">
-          <div className="title">
-            <h1>Data</h1>
-          </div>
-          <div className="table_wrpper">
-            <table>
-              <thead>
-                <tr>
-                  <th>d1</th>
-                  <th>d2</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>12.34</td>
-                  <td>5.67</td>
-                </tr>
-              </tbody>
-            </table>
+        <div className="fix_wrapper">
+          <div className="title_table">
+            <div className="title">
+              <h1>Data</h1>
+            </div>
+            <div className="table_wrpper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>d1</th>
+                    <th>d2</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>12.34</td>
+                    <td>5.67</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
         <div className="chart_wrap">
           <PuiMultiLineGraphDisplayComponent
-            title="chart1"
+            title=""
             subtitle="m/s"
             //data={data}
             width={500}
@@ -41,6 +50,36 @@ function App() {
             usedataplaceholder={false}
             margin={{ top: 5, bottom: 20, left: 30 }}
           />
+        </div>
+        <div className="video_wrapper">
+          <iframe
+            width="100%"
+            height="721"
+            src="https://www.youtube.com/embed/lh4JdZTJe7k"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div className="check_wrapper">
+          <div>
+            <label>
+              <input type="checkbox" />
+              센서A
+            </label>
+          </div>
+          <div>
+            <label>
+              <input type="checkbox" />
+              센서A
+            </label>
+          </div>
+          <div>
+            <label>
+              <input type="checkbox" onchange={videoshow} />
+              동영상
+            </label>
+          </div>
         </div>
       </div>
     </div>
