@@ -53,8 +53,6 @@ function App() {
         </div>
         <div className="video_wrapper">
           <iframe
-            width="100%"
-            height="721"
             src="https://www.youtube.com/embed/lh4JdZTJe7k"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -80,6 +78,10 @@ function App() {
               동영상
             </label>
           </div>
+        </div>
+        <div className="date_wrapper"></div>
+        <div className="retrieve_wrapper">
+          <button>조회</button>
         </div>
       </div>
     </div>
