@@ -7,7 +7,7 @@ function App() {
       <div className="wrapper">
         <div className="title_table">
           <div className="title">
-            <h1>data</h1>
+            <h1>Data</h1>
           </div>
           <div className="table_wrpper">
             <table>
@@ -26,10 +26,11 @@ function App() {
             </table>
           </div>
         </div>
-        <div>
+        <div className="chart_wrap">
           <PuiMultiLineGraphDisplayComponent
             title="chart1"
             subtitle="m/s"
+            //data={data}
             width={500}
             height={269}
             maxdatapoints={50}

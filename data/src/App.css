@@ -1,7 +1,7 @@
 body {
   width: 100%;
   height: 100%;
-  background-color: lightgray;
+  background-color: lightgray !important;
 }
 .wrapper {
   width: 100%;
@@ -31,6 +31,41 @@ td {
 }
 .table_wrpper tbody {
   width: 100%;
+}
+.chart_wrap {
+  width: 100%;
+  border: 1px solid red;
+}
+.line-graph-display-container {
+  width: 100% !important;
+  padding: 0 1rem;
+}
+.container,
+.container-fluid,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+@media (min-width: 1200px) {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl {
+    max-width: inital;
+  }
+  .container,
+  .container-fluid,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
 }
 
 /* app.css */
