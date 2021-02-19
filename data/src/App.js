@@ -3,12 +3,6 @@ import React, { useState } from "react";
 import PuiMultiLineGraphDisplayComponent from "./js/PuiMultiLineGraphDisplayComponent";
 
 function App() {
-  // const [terible, showterible] = (useState = null);
-
-  // const videoshow = () => {
-  //   showterible(true);
-  // };
-
   return (
     <div className="App">
       <div className="wrapper">
@@ -79,9 +73,33 @@ function App() {
             </label>
           </div>
         </div>
-        <div className="date_wrapper"></div>
+        <div className="date_wrapper">
+          <div>
+            <select id="select_year"></select>
+            <span>년</span>
+          </div>
+          <div>
+            <select id="select_year"></select>
+            <span>월</span>
+          </div>
+          <div>
+            <select id="select_day"></select>
+            <span>일</span>
+          </div>
+          <div>
+            <select id="select_day"></select>
+            <span>시</span>
+          </div>
+        </div>
         <div className="retrieve_wrapper">
           <button>조회</button>
+        </div>
+        <div className="result_wrap">
+          <table>
+            <tr>
+              <td>1</td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>

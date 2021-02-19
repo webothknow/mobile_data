@@ -102,6 +102,9 @@ td {
   display: flex;
   justify-content: space-around;
 }
+.date_wrapper {
+  display: flex;
+}
 .retrieve_wrapper {
   width: 100%;
   /* border: 1px solid green; */
@@ -111,6 +114,17 @@ td {
   width: 50%;
   height: 2rem;
   cursor: pointer;
+}
+.result_wrap {
+  width: 100%;
+}
+.result_wrap table {
+  width: 100%;
+}
+.result_wrap tr,
+.result_wrap td {
+  border-left: none;
+  border-right: none;
 }
 
 /* app.css */
