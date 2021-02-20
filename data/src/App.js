@@ -4,23 +4,7 @@ import PuiMultiLineGraphDisplayComponent from "./js/PuiMultiLineGraphDisplayComp
 import DropdownDate from "react-dropdown-date";
 
 function App() {
-  const formatDate = (date) => {
-    // formats a JS date to 'yyyy-mm-dd'
-    var d = new Date(date),
-      month = "" + (d.getMonth() + 1),
-      day = "" + d.getDate(),
-      year = d.getFullYear();
-
-    if (month.length < 2) month = "0" + month;
-    if (day.length < 2) day = "0" + day;
-
-    return [year, month, day].join("-");
-  };
-
-  const [state, setState] = useState({
-    date: null,
-    selectedDate: "2012-11-15",
-  });
+  const [show, setShow] = useState(false);
 
   return (
     <div className="App">
@@ -64,14 +48,18 @@ function App() {
             margin={{ top: 5, bottom: 20, left: 30 }}
           />
         </div>
-        <div className="video_wrapper">
-          <iframe
-            src="https://www.youtube.com/embed/lh4JdZTJe7k"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
+
+        {show ? (
+          <div className="video_wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/lh4JdZTJe7k"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        ) : null}
+
         <div className="check_wrapper">
           <div>
             <label>
@@ -87,7 +75,7 @@ function App() {
           </div>
           <div>
             <label>
-              <input type="checkbox" />
+              <input type="checkbox" onChange={() => setShow(!show)} />
               동영상
             </label>
           </div>
