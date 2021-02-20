@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import PuiMultiLineGraphDisplayComponent from "./js/PuiMultiLineGraphDisplayComponent";
+import DropdownDate from "react-dropdown-date";
 
 function App() {
   return (
@@ -73,7 +74,39 @@ function App() {
             </label>
           </div>
         </div>
-        <div className="date_wrapper"></div>
+        <div className="date_wrapper">
+        <DropdownDate
+        // selectedDate={
+        //   // optional
+        //   this.state.selectedDate // 'yyyy-mm-dd' format only
+        // }
+        onMonthChange={month => {
+          // optional
+          console.log(mon th);
+        }}
+        onDayChange={day => {
+          // optional
+          console.log(day);
+        }}
+        onYearChange={year => {
+          // optional
+          console.log(year);
+        }}
+        onDateChange={date => {
+          // optional
+          console.log(date);
+          setState({ date: date, selectedDate: formatDate(date) });
+        }}
+        defaultValues={
+          // optional
+          {
+            year: "select year",
+            month: "select month",
+            day: "select day"
+          }
+        }
+      />
+        </div>
         <div className="retrieve_wrapper">
           <button>조회</button>
         </div>
