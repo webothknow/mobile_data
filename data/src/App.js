@@ -15,11 +15,11 @@ function App() {
               <h1>Data</h1>
             </div>
             <div className="table_wrpper">
-              <table>
-                <thead>
-                  <tr>
-                    <th>d1</th>
-                    <th>d2</th>
+              <table width="100%">
+                <thead width="100%">
+                  <tr width="100%">
+                    <th width="50%">d1</th>
+                    <th width="50%">d2</th>
                   </tr>
                 </thead>
                 <tbody>
