@@ -80,7 +80,44 @@ function App() {
             </label>
           </div>
         </div>
-        <div className="date_wrapper"></div>
+        <div className="date_wrapper">
+          <div>
+            <span>
+              <select>
+                <option value="" selected>
+                  2020
+                </option>
+                <option value="">1900</option>
+              </select>
+              <span>년</span>
+            </span>
+            <span>
+              <select>
+                <option value="" selected>
+                  1
+                </option>
+              </select>
+              <span>월</span>
+            </span>
+            <span>
+              <select>
+                <option value="" selected>
+                  1
+                </option>
+              </select>
+              <span>일</span>
+            </span>
+            <span>
+              <select>
+                <option value="" selected>
+                  1
+                </option>
+                <option value="">2</option>
+              </select>
+              <span>시</span>
+            </span>
+          </div>
+        </div>
         <div className="retrieve_wrapper">
           <button>조회</button>
         </div>
