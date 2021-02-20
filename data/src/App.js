@@ -82,7 +82,7 @@ function App() {
         </div>
         <div className="date_wrapper">
           <div>
-            <span>
+            {/* <span>
               <select>
                 <option value="" selected>
                   2020
@@ -115,7 +115,7 @@ function App() {
                 <option value="">2</option>
               </select>
               <span>시</span>
-            </span>
+            </span> */}
           </div>
         </div>
         <div className="retrieve_wrapper">
