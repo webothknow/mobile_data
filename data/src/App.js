@@ -3,6 +3,26 @@ import React, { useState } from "react";
 import PuiMultiLineGraphDisplayComponent from "./js/PuiMultiLineGraphDisplayComponent";
 
 function App() {
+  const formatDate = (date) => {
+    // formats a JS date to 'yyyy-mm-dd'
+    var d = new Date(date),
+      month = "" + (d.getMonth() + 1),
+      day = "" + d.getDate(),
+      year = d.getFullYear();
+
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+
+    return [year, month, day].join("-");
+  };
+
+  function DropItems() {
+    const [state, setState] = useState({
+      date: null,
+      selectedDate: "2012-11-15",
+    });
+  }
+
   return (
     <div className="App">
       <div className="wrapper">
@@ -73,7 +93,39 @@ function App() {
             </label>
           </div>
         </div>
-        <div className="date_wrapper"></div>
+        <div className="date_wrapper">
+          <DropdownDate
+            // selectedDate={
+            //   // optional
+            //   this.state.selectedDate // 'yyyy-mm-dd' format only
+            // }
+            onMonthChange={(month) => {
+              // optional
+              console.log(month);
+            }}
+            onDayChange={(day) => {
+              // optional
+              console.log(day);
+            }}
+            onYearChange={(year) => {
+              // optional
+              console.log(year);
+            }}
+            onDateChange={(date) => {
+              // optional
+              console.log(date);
+              setState({ date: date, selectedDate: formatDate(date) });
+            }}
+            defaultValues={
+              // optional
+              {
+                year: "select year",
+                month: "select month",
+                day: "select day",
+              }
+            }
+          />
+        </div>
         <div className="retrieve_wrapper">
           <button>조회</button>
         </div>
