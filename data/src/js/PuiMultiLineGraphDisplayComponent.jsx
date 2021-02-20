@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { ResponsiveLineCanvas } from '@nivo/line';
-import { Card, Container } from 'react-bootstrap';
-//import {scaleLinear} from 'd3-scale';
-import 'bootstrap/dist/css/bootstrap.css';
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { ResponsiveLineCanvas } from "@nivo/line";
+import { Card, Container } from "react-bootstrap";
 
 const PuiMultiLineGraphDisplayComponent = ({
   title,
@@ -24,7 +22,7 @@ const PuiMultiLineGraphDisplayComponent = ({
 }) => {
   // Internal data & axis state
   const [state, setState] = useState({});
-  const [xrange, setXRange] = useState(['auto', 'auto']);
+  const [xrange, setXRange] = useState(["auto", "auto"]);
 
   // Initialize graphs to render & data on mounting (one-time)
   useEffect(() => {
@@ -33,13 +31,13 @@ const PuiMultiLineGraphDisplayComponent = ({
       for (let g in graphs) {
         initState[g] = {
           id: g,
-          color: '#eee', //graphs[g],
+          color: "#eee", //graphs[g],
           data: [],
         };
       }
       setState(initState);
     } catch {
-      throw Error('An error occured during parsing graph settings object.');
+      throw Error("An error occured during parsing graph settings object.");
     }
   }, [null]);
 
@@ -92,20 +90,23 @@ const PuiMultiLineGraphDisplayComponent = ({
       <Card>
         <Card.Title>{title}</Card.Title>
         {/*<Card.Subtitle className="mb-2 text-muted">{subtitle}</Card.Subtitle>*/}
-        <div className="line-graph-display-container" style={{ height: height, width: width }}>
+        <div
+          className="line-graph-display-container"
+          style={{ height: height, width: width }}
+        >
           <ResponsiveLineCanvas
             data={Object.values(state)}
             margin={margin}
             xScale={{
-              type: 'time',
-              format: '%Y-%m-%d %H:%M:%S',
-              precision: 'millisecond',
+              type: "time",
+              format: "%Y-%m-%d %H:%M:%S",
+              precision: "millisecond",
             }}
             xFormat="time:%S"
-            axisBottom={{ tickValues: ticks, format: '%S' }}
+            axisBottom={{ tickValues: ticks, format: "%S" }}
             gridXValues={ticks}
             yScale={{
-              type: 'linear',
+              type: "linear",
               format: { yformat },
               min: range[0],
               max: range[1],
@@ -120,11 +121,11 @@ const PuiMultiLineGraphDisplayComponent = ({
             isInteractive={false}
             legends={[
               {
-                anchor: 'top',
-                direction: 'row',
+                anchor: "top",
+                direction: "row",
                 justify: false,
                 itemsSpacing: 2,
-                itemDirection: 'left-to-right',
+                itemDirection: "left-to-right",
                 itemWidth: 80,
                 itemHeight: 12,
                 itemOpacity: 0.75,
@@ -138,7 +139,7 @@ const PuiMultiLineGraphDisplayComponent = ({
                 },
               },
             }}
-            layers={['grid', 'axes', 'lines', PersistentAxis]}
+            layers={["grid", "axes", "lines", PersistentAxis]}
           />
         </div>
       </Card>
@@ -147,19 +148,19 @@ const PuiMultiLineGraphDisplayComponent = ({
 };
 
 PuiMultiLineGraphDisplayComponent.defaultProps = {
-  title: 'Sample Title',
+  title: "Sample Title",
   height: 500,
   width: 500,
-  range: ['auto', 'auto'],
+  range: ["auto", "auto"],
   maxdatapoints: 100,
-  datagroup: 'gps',
-  xformat: ' >-.0f',
-  yformat: ' >-.0f',
-  useinternalcolors: { scheme: 'spectral' },
+  datagroup: "gps",
+  xformat: " >-.0f",
+  yformat: " >-.0f",
+  useinternalcolors: { scheme: "spectral" },
   margin: { top: 25, bottom: 50, left: 50 },
   ticks: 5,
-  textcolor: '#ffffff',
-  gridcolor: '#888',
+  textcolor: "#ffffff",
+  gridcolor: "#888",
 };
 
 PuiMultiLineGraphDisplayComponent.propTypes = {
