@@ -1,37 +1,42 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import PuiMultiLineGraphDisplayComponent from "./js/PuiMultiLineGraphDisplayComponent";
-import WebSocketClient from "./js/ws/WebSocketClient";
+import PuiMultiLineGraphDisplayComponent from "./js/PuiMultiLineGraphDisplayComponent"; //gragh
+import WebSocketClient from "./js/ws/WebSocketClient"; //wepsocket
 
 function App() {
+  //wepsocket
   const wsc = new WebSocketClient("ws://dev.perigee.kr", 8700, "/ws", 100);
-  const [data, setData] = useState();
-
+  const [data, setData] = useState(); //wepsocket
   useEffect(() => {
-    wsc.openConn();
+    wsc.openConn(); //wepsocket
   }, []);
 
+  //get year form data()
   let thisDate = new Date();
   let thisYear = thisDate.getFullYear();
 
+  //year loop
   let yearTotal = thisYear;
   let yeararray = [];
   for (let a = 2000; a <= yearTotal; a++) {
     yeararray.push(a);
   }
 
+  //month loop
   let monthTotal = 12;
   let montharray = [];
   for (let a = 1; a <= monthTotal; a++) {
     montharray.push(a);
   }
 
+  //day loop
   let dayTotal = 31;
   let dayarray = [];
   for (let b = 1; b <= dayTotal; b++) {
     dayarray.push(b);
   }
 
+  //hour loop
   let hourTotal = 24;
   let hourarray = [];
   for (let c = 1; c <= hourTotal; c++) {
@@ -92,6 +97,7 @@ function App() {
             </div>
           </div>
         </div>
+        {/* chart gragh */}
         <div className="chart_wrap">
           <PuiMultiLineGraphDisplayComponent
             title=""
@@ -108,7 +114,7 @@ function App() {
             margin={{ top: 5, bottom: 20, left: 30 }}
           />
         </div>
-
+        {/* video */}
         {show ? (
           <div className="video_wrapper">
             <iframe
@@ -119,7 +125,7 @@ function App() {
             ></iframe>
           </div>
         ) : null}
-
+        {/* checkbox */}
         <div className="check_wrapper">
           <div>
             <label>
@@ -163,6 +169,7 @@ function App() {
         <div className="retrieve_wrapper">
           <button>조회</button>
         </div>
+        {/* table */}
         <div className="result_wrap">
           <table>
             <tr>
