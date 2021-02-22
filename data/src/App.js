@@ -2,6 +2,8 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import PuiMultiLineGraphDisplayComponent from "./js/PuiMultiLineGraphDisplayComponent"; //gragh
 import WebSocketClient from "./js/ws/WebSocketClient"; //wepsocket
+import { observer } from "mobx-react";
+import { toJS } from "mobx";
 
 function App() {
   //wepsocket
@@ -70,6 +72,47 @@ function App() {
 
   //video
   const [show, setShow] = useState(false);
+
+  //table
+  const Observer = observer(({ store, group }) => {
+    let MAX_LEN = 10;
+    let msg = Array();
+    let m = store.getAllMsg;
+    let len = store.getBuffLen;
+
+    for (let i = 0; i < MAX_LEN; i++) {
+      let idx = len - 1 + i * -1;
+      let ser = "";
+      let res = "";
+      if (idx < 0) {
+        msg.push(
+          <tr>
+            <td>{"N/A"}</td>
+            <td>{"N/A"}</td>
+          </tr>
+        );
+      } else {
+        msg.push(
+          <tr>
+            <td>{m[idx][group][1]}</td>
+            <td>{m[idx][group][2]}</td>
+          </tr>
+        );
+      }
+    }
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th className="title1">날짜</th>
+            <th className="title2">센서값</th>
+          </tr>
+        </thead>
+        <tbody>{msg}</tbody>
+        <tfoot></tfoot>
+      </table>
+    );
+  });
 
   return (
     <div className="App">
@@ -173,8 +216,7 @@ function App() {
         <div className="result_wrap">
           <table>
             <tr>
-              <td>날짜</td>
-              <td>센서값</td>
+              <Observer store={wsc.store} group="d_raw_msg" />
             </tr>
           </table>
         </div>
