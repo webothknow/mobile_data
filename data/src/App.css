@@ -27,6 +27,7 @@ body {
   padding: 1rem 0;
   font-size: 2rem;
 }
+/* data table */
 .table_wrpper {
   width: 100%;
   height: 10rem;
@@ -48,6 +49,7 @@ td {
 .table_wrpper tbody {
   width: 100%;
 }
+/* chart gragh */
 .chart_wrap {
   width: 100%;
   height: 18rem;
@@ -89,6 +91,7 @@ td {
     padding-left: 0 !important;
   }
 }
+/* video */
 .video_wrapper {
   width: 100%;
   height: 18rem;
@@ -99,10 +102,12 @@ td {
   width: 100%;
   height: 100%;
 }
+/* check box */
 .check_wrapper {
   display: flex;
   justify-content: space-around;
 }
+/* date */
 .date_wrapper {
   display: flex;
   justify-content: center;
@@ -111,6 +116,7 @@ td {
   height: 5rem;
   border: 1px solid green;
 }
+/* retrieve */
 .retrieve_wrapper {
   width: 100%;
   /* border: 1px solid green; */
@@ -121,18 +127,26 @@ td {
   height: 2rem;
   cursor: pointer;
 }
+/* sensor table */
 .result_wrap {
   width: 100%;
 }
 .result_wrap table {
   width: 100%;
+  border-collapse: collapse;
+}
+.result_wrap thead tr,
+.result_wrap thead tr {
+  border: none;
+}
+.result_wrap thead th {
+  border: none;
 }
 .result_wrap tr,
 .result_wrap td {
   border-left: none;
   border-right: none;
 }
-
 /* app.css */
 .App {
   text-align: center;

@@ -75,7 +75,7 @@ function App() {
 
   //table
   const Observer = observer(({ store, group }) => {
-    let MAX_LEN = 10;
+    let MAX_LEN = 100;
     let msg = Array();
     let m = store.getAllMsg;
     let len = store.getBuffLen;
@@ -89,12 +89,29 @@ function App() {
           <tr>
             <td>{"N/A"}</td>
             <td>{"N/A"}</td>
+            <td>{"N/A"}</td>
           </tr>
         );
       } else {
+        try {
+          let str = m[idx][group][0];
+          res = str.substring(9);
+          // console.log(res);
+
+          ser = str.substring(0, 8);
+          // console.log(ser);
+        } catch (e) {
+          //에러시 콘솔에서 나오는 메세지
+          console.log("received msg error", m, e);
+          continue;
+        }
         msg.push(
           <tr>
             <td>{m[idx][group][1]}</td>
+            <td>
+              {ser}
+              <small>{res}</small>
+            </td>
             <td>{m[idx][group][2]}</td>
           </tr>
         );
@@ -105,6 +122,7 @@ function App() {
         <thead>
           <tr>
             <th className="title1">날짜</th>
+            <th className="title1">시간</th>
             <th className="title2">센서값</th>
           </tr>
         </thead>
@@ -212,7 +230,7 @@ function App() {
         <div className="retrieve_wrapper">
           <button>조회</button>
         </div>
-        {/* table */}
+        {/* sensor table */}
         <div className="result_wrap">
           <table>
             <tr>
