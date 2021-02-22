@@ -16,7 +16,7 @@ function App() {
 
   let yearTotal = thisYear;
   let yeararray = [];
-  for (let a = 2020; a <= yearTotal; a++) {
+  for (let a = 2000; a <= yearTotal; a++) {
     yeararray.push(a);
   }
 
