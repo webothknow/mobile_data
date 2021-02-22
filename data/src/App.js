@@ -1,9 +1,69 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PuiMultiLineGraphDisplayComponent from "./js/PuiMultiLineGraphDisplayComponent";
-// import DropdownDate from "react-dropdown-date";
+import WebSocketClient from "./js/ws/WebSocketClient";
 
 function App() {
+  const wsc = new WebSocketClient("ws://dev.perigee.kr", 8700, "/ws", 100);
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    wsc.openConn();
+  }, []);
+
+  let thisDate = new Date();
+  let thisYear = thisDate.getFullYear();
+
+  let yearTotal = thisYear;
+  let yeararray = [];
+  for (let a = 2020; a <= yearTotal; a++) {
+    yeararray.push(a);
+  }
+
+  let monthTotal = 12;
+  let montharray = [];
+  for (let a = 1; a <= monthTotal; a++) {
+    montharray.push(a);
+  }
+
+  let dayTotal = 31;
+  let dayarray = [];
+  for (let b = 1; b <= dayTotal; b++) {
+    dayarray.push(b);
+  }
+
+  let hourTotal = 24;
+  let hourarray = [];
+  for (let c = 1; c <= hourTotal; c++) {
+    hourarray.push(c);
+  }
+
+  //year
+  const yearArray = [];
+  const yearData = yeararray;
+  for (let i = 0; i < yearData.length; i++) {
+    yearArray.push(<option>{yearData[i]}</option>);
+  }
+  //month
+  const monthArray = [];
+  const monthData = montharray;
+  for (let i = 0; i < monthData.length; i++) {
+    monthArray.push(<option>{monthData[i]}</option>);
+  }
+  //day
+  const dayArray = [];
+  const dayData = dayarray;
+  for (let i = 0; i < dayData.length; i++) {
+    dayArray.push(<option>{dayData[i]}</option>);
+  }
+  //hour
+  const hourArray = [];
+  const hourData = hourarray;
+  for (let i = 0; i < hourData.length; i++) {
+    hourArray.push(<option>{hourData[i]}</option>);
+  }
+
+  //video
   const [show, setShow] = useState(false);
 
   return (
@@ -36,7 +96,7 @@ function App() {
           <PuiMultiLineGraphDisplayComponent
             title=""
             subtitle="m/s"
-            //data={data}
+            data={data}
             width={500}
             height={269}
             maxdatapoints={50}
@@ -82,40 +142,22 @@ function App() {
         </div>
         <div className="date_wrapper">
           <div>
-            {/* <span>
-              <select>
-                <option value="" selected>
-                  2020
-                </option>
-                <option value="">1900</option>
-              </select>
+            <span>
+              <select defaultValue="that">{yearArray}</select>
               <span>년</span>
             </span>
             <span>
-              <select>
-                <option value="" selected>
-                  1
-                </option>
-              </select>
+              <select defaultValue="that">{monthArray}</select>
               <span>월</span>
             </span>
             <span>
-              <select>
-                <option value="" selected>
-                  1
-                </option>
-              </select>
+              <select defaultValue="that">{dayArray}</select>
               <span>일</span>
             </span>
             <span>
-              <select>
-                <option value="" selected>
-                  1
-                </option>
-                <option value="">2</option>
-              </select>
+              <select defaultValue="that">{hourArray}</select>
               <span>시</span>
-            </span> */}
+            </span>
           </div>
         </div>
         <div className="retrieve_wrapper">
