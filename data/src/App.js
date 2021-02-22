@@ -195,13 +195,13 @@ function App() {
           <div>
             <label>
               <input type="checkbox" />
-              센서A
+              온도
             </label>
           </div>
           <div>
             <label>
               <input type="checkbox" />
-              센서A
+              ph
             </label>
           </div>
           <div>
