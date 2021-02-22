@@ -153,6 +153,10 @@ function App() {
                     <td>12.34</td>
                     <td>5.67</td>
                   </tr>
+                  <tr>
+                    <td>12.34</td>
+                    <td>5.67</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
