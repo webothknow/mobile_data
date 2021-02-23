@@ -45,6 +45,15 @@ function App() {
     hourarray.push(c);
   }
 
+  //minute loop
+  let minuteTotal = 55;
+  let minutearray = [];
+  for (let d = 1; d <= minuteTotal; d++) {
+    if (d % 5 == 0) {
+      minutearray.push(d);
+    }
+  }
+
   //year
   const yearArray = [];
   const yearData = yeararray;
@@ -70,6 +79,13 @@ function App() {
     hourArray.push(<option>{hourData[i]}</option>);
   }
 
+  //minute
+  const minuteArray = [];
+  const minuteData = minutearray;
+  for (let i = 0; i < minuteData.length; i++) {
+    minuteArray.push(<option>{minuteData[i]}</option>);
+  }
+
   //video
   const [show, setShow] = useState(false);
 
@@ -90,18 +106,17 @@ function App() {
             <td>{"N/A"}</td>
             <td>{"N/A"}</td>
             <td>{"N/A"}</td>
+            <td>{"N/A"}</td>
+            <td>{"N/A"}</td>
+            <td>{"N/A"}</td>
           </tr>
         );
       } else {
         try {
           let str = m[idx][group][0];
           res = str.substring(9);
-          // console.log(res);
-
           ser = str.substring(0, 8);
-          // console.log(ser);
         } catch (e) {
-          //에러시 콘솔에서 나오는 메세지
           console.log("received msg error", m, e);
           continue;
         }
@@ -113,6 +128,9 @@ function App() {
               <small>{res}</small>
             </td>
             <td>{m[idx][group][2]}</td>
+            <td>{m[idx][group][2]}</td>
+            <td>{m[idx][group][2]}</td>
+            <td>{m[idx][group][2]}</td>
           </tr>
         );
       }
@@ -123,7 +141,10 @@ function App() {
           <tr>
             <th className="title1">날짜</th>
             <th className="title1">시간</th>
-            <th className="title2">센서값</th>
+            <th className="title2">D1</th>
+            <th className="title2">D2</th>
+            <th className="title2">D3</th>
+            <th className="title2">D4</th>
           </tr>
         </thead>
         <tbody>{msg}</tbody>
@@ -144,8 +165,8 @@ function App() {
               <table width="100%">
                 <thead width="100%">
                   <tr width="100%">
-                    <th width="50%">d1</th>
-                    <th width="50%">d2</th>
+                    <th width="50%">D1</th>
+                    <th width="50%">D2</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -195,13 +216,7 @@ function App() {
           <div>
             <label>
               <input type="checkbox" />
-              온도
-            </label>
-          </div>
-          <div>
-            <label>
-              <input type="checkbox" />
-              ph
+              Data
             </label>
           </div>
           <div>
@@ -228,6 +243,10 @@ function App() {
             <span>
               <select defaultValue="that">{hourArray}</select>
               <span>시</span>
+            </span>
+            <span>
+              <select defaultValue="that">{minuteArray}</select>
+              <span>분</span>
             </span>
           </div>
         </div>
