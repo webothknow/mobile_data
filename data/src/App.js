@@ -20,7 +20,7 @@ function App() {
   //year loop
   let yearTotal = thisYear;
   let yeararray = [];
-  for (let a = 2000; a <= yearTotal; a++) {
+  for (let a = 2020; a <= yearTotal; a++) {
     yeararray.push(a);
   }
 
@@ -89,8 +89,47 @@ function App() {
   //video
   const [show, setShow] = useState(false);
 
-  //table
-  const Observer = observer(({ store, group }) => {
+  // top table
+  const TopObserver = observer(({ store, group }) => {
+    let MAX_LEN = 2;
+    let msg = Array();
+    let m = store.getAllMsg;
+    let len = store.getBuffLen;
+
+    for (let i = 0; i < MAX_LEN; i++) {
+      let idx = len - 1 + i * -1;
+      if (idx < 0) {
+        msg.push(
+          <tr>
+            <td>{"N/A"}</td>
+            <td>{"N/A"}</td>
+          </tr>
+        );
+      } else {
+        msg.push(
+          <tr>
+            <td>{m[idx][group][2]}</td>
+            <td>{m[idx][group][2]}</td>
+          </tr>
+        );
+      }
+    }
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th className="title1">D1</th>
+            <th className="title1">D2</th>
+          </tr>
+        </thead>
+        <tbody>{msg}</tbody>
+        <tfoot></tfoot>
+      </table>
+    );
+  });
+
+  //bottom table
+  const BottomObserver = observer(({ store, group }) => {
     let MAX_LEN = 100;
     let msg = Array();
     let m = store.getAllMsg;
@@ -162,24 +201,7 @@ function App() {
               <h1>Data</h1>
             </div>
             <div className="table_wrpper">
-              <table width="100%">
-                <thead width="100%">
-                  <tr width="100%">
-                    <th width="50%">D1</th>
-                    <th width="50%">D2</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>12.34</td>
-                    <td>5.67</td>
-                  </tr>
-                  <tr>
-                    <td>12.34</td>
-                    <td>5.67</td>
-                  </tr>
-                </tbody>
-              </table>
+              <TopObserver store={wsc.store} group="d_raw_msg" />
             </div>
           </div>
         </div>
@@ -257,7 +279,7 @@ function App() {
         <div className="result_wrap">
           <table>
             <tr>
-              <Observer store={wsc.store} group="d_raw_msg" />
+              <BottomObserver store={wsc.store} group="d_raw_msg" />
             </tr>
           </table>
         </div>
