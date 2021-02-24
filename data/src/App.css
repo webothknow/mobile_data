@@ -14,7 +14,7 @@ body {
   position: relative;
 }
 .title_table {
-  border: 1px solid rebeccapurple;
+  /* border: 1px solid rebeccapurple; */
   position: fixed;
   width: 100%;
   top: 0;
